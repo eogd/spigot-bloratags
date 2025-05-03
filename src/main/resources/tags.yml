@@ -1,0 +1,56 @@
+# ------------------------------------------------------------------------------------ #
+# BloraTags - tags.yml                                                                 #
+# 定义所有可用的聊天标签                                                                 #
+# ------------------------------------------------------------------------------------ #
+
+# 'tags' 是包含所有标签定义的主部分
+tags:
+  # 'default' 是标签的唯一 ID (将自动转为小写)
+  default:
+    # 'display' 是标签在聊天中实际显示的内容 (支持 MiniMessage 格式)
+    display: "<gray>[默认]</gray>"
+    # 'description' 是在 GUI 中显示的标签描述
+    description: "一个简单的默认标签。"
+    # 'permission' (可选): 拥有此标签所需的权限节点。如果留空或省略，则无需权限。
+    permission:
+    # 'buyable' (可选, 默认 false): 此标签是否可以在商店中购买 (需要 Vault 和经济插件)。
+    buyable: false
+    # 'price' (可选, 默认 0.0): 如果 'buyable' 为 true，则为购买价格。
+    price: 0.0
+    # 'requires_application' (可选, 默认 false): 是否需要通过 /tags apply 申请此标签。
+    requires_application: false
+    # 'application_fee' (可选, 默认 0.0): 如果 'requires_application' 为 true，则为申请费用。
+    application_fee: 0.0
+    # 'application_refund_on_reject' (可选, 默认 true): 如果申请被拒绝，是否退还申请费。
+    application_refund_on_reject: true
+
+  vip:
+    display: "<gradient:#FFD700:#FFA500>[VIP]</gradient>"
+    description: "尊贵的 VIP 专属标签。"
+    permission: "bloratags.tag.vip" # 示例权限
+    buyable: true
+    price: 1000.0
+    requires_application: false
+
+  staff:
+    display: "<bold><red>[管理]</red></bold>"
+    description: "管理员专属标签。"
+    permission: "bloratags.tag.staff"
+    buyable: false
+    requires_application: false # 通常由管理员授予
+
+  supporter:
+    display: "<aqua>[支持者]</aqua>"
+    description: "感谢您的支持！申请此标签以示身份。"
+    permission: # 无需额外权限即可申请
+    buyable: false
+    requires_application: true
+    application_fee: 50.0 # 申请需要 50 游戏币
+    application_refund_on_reject: true # 拒绝时退款
+
+  eventwinner:
+    display: "<light_purple>[活动冠军]</light_purple>"
+    description: "活动获胜者的特殊奖励标签！"
+    permission: # 通常由管理员授予
+    buyable: false
+    requires_application: false

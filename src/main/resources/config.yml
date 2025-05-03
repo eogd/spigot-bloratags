@@ -1,0 +1,68 @@
+database:
+  type: "sqlite"
+  host: "localhost"
+  port: 3306
+  database: "bloratags"
+  username: "user"
+  password: "password"
+  args: "?useSSL=false&autoReconnect=true&characterEncoding=utf8"
+  max-pool-size: 10
+  connection-timeout: 30000
+
+defaults:
+  tag_format: " {tag} "
+  color_id: "white"
+  apply_default_color_if_none_set: true
+
+tags:
+  default:
+    display: "<gray>Default</gray>"
+    price: 0
+    permission: null
+  vip:
+    display: "<gradient:blue:aqua>VIP</gradient>"
+    price: 1000.0
+    permission: bloratags.tag.vip
+  admin:
+    display: "<bold><red>ADMIN</red></bold>"
+    price: 0
+    permission: bloratags.tag.admin
+
+
+tag_formats:
+  admin: "[{tag}]"
+
+
+colors:
+  white:
+    value: "white"
+    permission: null
+  red:
+    value: "#FF5555"
+    permission: bloratags.color.red
+  blue:
+    value: "blue"
+    permission: bloratags.color.blue
+  gold:
+    value: "gold"
+    permission: bloratags.color.gold
+
+gradients:
+  rainbow:
+    start: "red"
+    end: "light_purple"
+    permission: bloratags.gradient.rainbow
+  ocean:
+    start: "blue"
+    end: "aqua"
+    permission: bloratags.gradient.ocean
+
+
+applications:
+  enabled: false
+  fee: 0.0
+  notify_admin_on_submit: true
+  notify_admin_on_join_if_pending: true
+  refund_fee_on_reject: false
+
+admin_notification_permission: "bloratags.admin.notify"

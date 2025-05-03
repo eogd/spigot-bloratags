@@ -1,0 +1,26 @@
+# ------------------------------------------------------------------------------------ #
+# BloraTags - gradients.yml                                                            #
+# 定义可用于标签的渐变色                                                               #
+# 渐变色引用 colors.yml 中定义的颜色 ID                                                #
+# ------------------------------------------------------------------------------------ #
+
+# 'gradients' 是包含所有渐变定义的主部分
+gradients:
+  # 'rainbow' 是渐变的唯一 ID (将自动转为小写)
+  rainbow:
+    # 'start_color_id' 是起始颜色的 ID (必须在 colors.yml 中定义)
+    start_color_id: "red"
+    # 'end_color_id' 是结束颜色的 ID (必须在 colors.yml 中定义)
+    end_color_id: "blue" # 示例：从红到蓝
+    # 'permission' (可选): 使用此渐变所需的权限节点。
+    permission: "bloratags.gradient.rainbow" # 示例权限
+
+  sunset:
+    start_color_id: "gold"
+    end_color_id: "dark_red"
+    permission: "bloratags.gradient.sunset"
+
+  ocean:
+    start_color_id: "blue"
+    end_color_id: "#00FFFF" # 可以直接用十六进制，但最好引用 color ID
+    permission:

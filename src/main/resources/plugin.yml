@@ -1,0 +1,70 @@
+name: BloraTags
+version: '${project.version}'
+main: com.blorasoft.bloratags.BloraTags
+api-version: '1.21'
+authors: [BloraSoft, eogd]
+description: A comprehensive tag management plugin for Spigot 1.21+.
+softdepend: [Vault, PlaceholderAPI]
+
+commands:
+  tags:
+    description: Access the main BloraTags menu and related user commands.
+    usage: "/tags [apply|select|clear|color|help]"
+    permission: bloratags.use
+    aliases: [tag]
+  btadmin:
+    description: BloraTags administrative commands.
+    usage: "/btadmin [reload|review|grant|revoke|setstyle|clearstyle|info|help]"
+    permission: bloratags.admin
+    aliases: [bloratagadmin]
+
+permissions:
+  bloratags.use:
+    description: Allows using the base /tags command and opening the main GUI.
+    default: true
+  bloratags.select:
+    description: Allows using the /tags select <tag_id> command to choose an owned tag.
+    default: true
+  bloratags.clear:
+    description: Allows using the /tags clear command to remove the selected tag.
+    default: true
+  bloratags.color:
+    description: Allows using the /tags color <style_id> command to choose a style (color/gradient). Specific style permissions are checked separately.
+    default: true
+  bloratags.apply:
+    description: Allows using the /tags apply <tag_id> command to apply for tags that require application.
+    default: true
+
+  bloratags.admin:
+    description: Grants access to all BloraTags administrative commands and features.
+    default: op
+    children:
+      bloratags.admin.reload: true
+      bloratags.admin.review: true
+      bloratags.admin.grant: true
+      bloratags.admin.revoke: true
+      bloratags.admin.setstyle: true
+      bloratags.admin.clearstyle: true
+      bloratags.admin.info: true
+
+  bloratags.admin.reload:
+    description: Allows reloading the BloraTags configuration using /btadmin reload.
+    default: op
+  bloratags.admin.review:
+    description: Allows accessing the tag application review GUI via command (/btadmin review) or main menu button.
+    default: op
+  bloratags.admin.grant:
+    description: Allows granting tags to players using /btadmin grant <player> <tag_id>.
+    default: op
+  bloratags.admin.revoke:
+    description: Allows revoking tags from players using /btadmin revoke <player> <tag_id>.
+    default: op
+  bloratags.admin.setstyle:
+    description: Allows setting the tag style (color/gradient) for players using /btadmin setstyle <player> <style_id>.
+    default: op
+  bloratags.admin.clearstyle:
+    description: Allows clearing the tag style for players using /btadmin clearstyle <player>.
+    default: op
+  bloratags.admin.info:
+    description: Allows viewing tag information for players using /btadmin info <player>.
+    default: op

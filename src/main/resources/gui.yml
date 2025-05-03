@@ -1,0 +1,171 @@
+
+general:
+  no_tag_selected: "<italic><gray>无</italic>"
+  date_format: "yyyy-MM-dd HH:mm"
+
+  pagination:
+    previous_page:
+      slot: 45
+      material: "ARROW"
+      material_disabled: "GRAY_DYE"
+      name: "<yellow>上一页 ({page})"
+      name_disabled: "<gray>已经是第一页"
+      lore: []
+    next_page:
+      slot: 53
+      material: "ARROW"
+      material_disabled: "GRAY_DYE"
+      name: "<yellow>下一页 ({page})"
+      name_disabled: "<gray>已经是最后一页"
+      lore: []
+    back:
+      slot: 49
+      material: "BARRIER"
+      name: "<red>返回"
+      lore:
+        - "<gray>返回上一级菜单"
+    page_indicator:
+      slot: 50
+      material: "PAPER"
+      name: "<gray>第 {page}/{max_page} 页"
+
+main_menu:
+  title: "<dark_aqua>标签菜单</dark_aqua>"
+  size: 27
+  filler_item: "GRAY_STAINED_GLASS_PANE"
+  items:
+    info:
+      slot: 4
+      material: "PLAYER_HEAD"
+      name: "<gold>玩家信息</gold>"
+      lore:
+        - "<gray>玩家: <white>{player_name}"
+        - "<gray>当前标签: {current_tag}"
+      glow: false
+    my_tags:
+      slot: 10
+      material: "NAME_TAG"
+      name: "<green>我的标签</green>"
+      lore:
+        - "<gray>查看并选择你拥有的标签。"
+      glow: false
+      action: "open_my_tags"
+    style_selector:
+      slot: 12
+      material: "GLOWSTONE_DUST"
+      name: "<aqua>样式选择</aqua>"
+      lore:
+        - "<gray>选择标签的颜色或渐变效果。"
+      glow: false
+      action: "open_style_selector"
+    shop:
+      slot: 14
+      material: "EMERALD"
+      name: "<gold>标签商店</gold>"
+      lore:
+        - "<gray>购买新的标签。"
+        - "<yellow>(需要 Vault & 经济插件)"
+      glow: false
+      action: "open_shop"
+    admin_review:
+      slot: 16
+      material: "WRITABLE_BOOK"
+      name: "<blue>审核申请</blue>"
+      lore:
+        - "<gray>管理待处理的标签申请。"
+        - "<dark_gray>(仅管理员可见)"
+      glow: false
+      action: "open_admin_review" # Requires bloratags.admin.review permission
+    close_button:
+      slot: 22
+      material: "BARRIER"
+      name: "<red>关闭菜单</red>"
+      lore: []
+      glow: false
+      action: "close"
+
+my_tags:
+  title: "我的标签 ({page}/{max_page})"
+  size: 54
+  filler_item: "BLACK_STAINED_GLASS_PANE"
+  item:
+    material: "NAME_TAG"
+    name: "<green>{tag_display}"
+    lore:
+      - "<gray>ID: <white>{tag_id}"
+      - "<dark_gray>{tag_description}"
+      - ""
+    lore_selected: "<yellow>▶ 当前选中"
+    lore_select: "<gray>点击选择"
+    lore_clear: "<red>Shift+左键取消选择"
+
+style_selector:
+  title: "选择样式 ({page}/{max_page})"
+  size: 54
+  filler_item: "GRAY_STAINED_GLASS_PANE"
+
+  color_item:
+    material: "WHITE_WOOL"
+    name: "<{color_value}>{color_id}"
+    lore:
+      - "<gray>ID: <white>{color_id}"
+      - "<gray>值: <white>{color_value}"
+      - ""
+  gradient_item:
+    material: "FILLED_MAP"
+    name: "<gradient:{start_color_value}:{end_color_value}>{gradient_id}"
+    lore:
+      - "<gray>ID: <white>{gradient_id}"
+      - "<gray>起始: <white>{start_color_id} (<{start_color_value}>●</{start_color_value}>)"
+      - "<gray>结束: <white>{end_color_id} (<{end_color_value}>●</{end_color_value}>)"
+      - ""
+
+  item_lore_selected: "<yellow>▶ 当前选中"
+  item_lore_select: "<gray>点击选择"
+  item_lore_no_permission: "<red>你没有权限使用此样式"
+  item_material_no_permission: "BARRIER"
+
+  clear_style:
+    slot: 48
+    material: "BUCKET"
+    name: "<aqua>清除样式"
+    lore:
+      - "<gray>点击移除当前选择的颜色/渐变。"
+
+shop:
+  title: "标签商店 ({page}/{max_page})"
+  size: 54
+  filler_item: "YELLOW_STAINED_GLASS_PANE"
+  item:
+    material: "EMERALD"
+    name: "<gold>{tag_display}"
+    lore:
+      - "<gray>ID: <white>{tag_id}"
+      - "<dark_gray>{tag_description}"
+      - ""
+    material_owned: "GRAY_DYE"
+    lore_owned: "<gray>你已拥有此标签"
+    material_no_permission: "BARRIER"
+    lore_no_permission: "<red>你没有购买此标签的权限"
+    material_cannot_afford: "RED_DYE"
+    lore_cannot_afford: "<red>你的余额不足"
+    lore_price: "<gold>价格: {formatted_price}"
+    lore_can_afford: "<green>点击购买"
+
+admin_review:
+  title: "审核申请 ({page}/{max_page})"
+  size: 54
+  filler_item: "BLUE_STAINED_GLASS_PANE"
+  item:
+    material: "PAPER"
+    name: "<yellow>申请: <white>{player_name} - <gold>{tag_id}"
+    lore:
+      - "<gray>申请人: <white>{player_name}"
+      - "<gray>UUID: <dark_gray>{player_uuid}"
+      - "<gray>标签 ID: <white>{tag_id}"
+      - "<gray>标签显示: {tag_display}"
+      - "<gray>申请时间: <aqua>{formatted_date}"
+      - "<dark_gray>ID: {application_id}"
+      - ""
+    lore_approve: "<green>左键点击批准"
+    lore_reject: "<red>右键点击拒绝"

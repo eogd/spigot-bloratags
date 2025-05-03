@@ -1,0 +1,33 @@
+# ------------------------------------------------------------------------------------ #
+# BloraTags - colors.yml                                                               #
+# 定义可用于标签的纯色                                                                 #
+# ------------------------------------------------------------------------------------ #
+
+# 'colors' 是包含所有颜色定义的主部分
+colors:
+  # 'white' 是颜色的唯一 ID (将自动转为小写)
+  white:
+    # 'value' 是 MiniMessage 颜色值 (可以是名称或十六进制代码)
+    value: "white"
+    # 'permission' (可选): 使用此颜色所需的权限节点。
+    permission:
+
+  red:
+    value: "red"
+    permission: "bloratags.color.red" # 示例权限
+
+  blue:
+    value: "#00AAFF" # 可以使用十六进制代码
+    permission:
+
+  gold:
+    value: "gold"
+    permission: "bloratags.color.gold"
+
+  gray:
+    value: "gray"
+    permission:
+
+  dark_red:
+    value: "dark_red"
+    permission: "bloratags.color.dark_red"
